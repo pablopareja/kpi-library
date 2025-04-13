@@ -1,21 +1,31 @@
 'use client'
 
 import clsx from 'clsx'
+import ClearIcon from '../icons/ClearIcon'
 import { SearchIcon } from '../icons/SearchIcon'
 
 interface SearchInputProps {
+  value: string
   onChange: (value: string) => void
   placeholder?: string
   className?: string
+  showClear?: boolean
+  onClear?: () => void
 }
 
 export const SearchInput = ({
+  value,
   onChange,
   placeholder = 'Type to search...',
   className = '',
+  showClear = true,
+  onClear,
 }: SearchInputProps) => {
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     onChange(event.target.value)
+  }
+  const handleInputClear = () => {
+    onClear?.()
   }
   return (
     <div
@@ -26,10 +36,16 @@ export const SearchInput = ({
     >
       <SearchIcon className="w-5 h-5 text-gray-500" />
       <input
-        className="focus:outline-none"
+        className="w-full focus:outline-none"
         placeholder={placeholder}
         onChange={handleInputChange}
+        value={value}
       />
+      {showClear && value && (
+        <div onClick={handleInputClear}>
+          <ClearIcon className="w-5 h-5 text-gray-500 cursor-pointer" />
+        </div>
+      )}
     </div>
   )
 }
