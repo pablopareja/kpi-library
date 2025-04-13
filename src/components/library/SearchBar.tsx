@@ -28,7 +28,7 @@ export const SearchBar = () => {
   }
   return (
     <SearchInput
-      className="w-full"
+      className="w-full mt-8"
       onChange={handleSearch}
       onClear={handleClear}
       value={searchText}

@@ -30,7 +30,7 @@ export const SearchInput = ({
   return (
     <div
       className={clsx(
-        'flex items-center gap-2 px-3 py-1 border border-solid border-gray-500 rounded-[10px]',
+        'flex items-center gap-2 px-4 py-3 border-2 border-solid border-gray-200 rounded-[10px] bg-white',
         className
       )}
     >

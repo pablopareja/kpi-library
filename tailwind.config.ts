@@ -13,17 +13,6 @@ module.exports = {
         sans: ['Inter', 'sans-serif'],
       },
       colors: {
-        gray: {
-          50: '#f9f9f9',
-          100: '#eeeeee',
-          200: '#dddddd',
-          300: '#bbbbbb',
-          400: '#999999',
-          500: '#777777',
-          600: '#555555',
-          700: '#2a2a2a',
-          800: '#000000',
-        },
         primary: '#1e293b', // slate-800
         accent: '#64748b', // slate-400
         background: '#f9fafb', // gray-50

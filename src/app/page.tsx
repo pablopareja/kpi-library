@@ -1,4 +1,7 @@
+import { FeaturedAssets } from '@/components/library/FeaturedAssets'
+import { FilterBar } from '@/components/library/FilterBar'
 import { SearchBar } from '@/components/library/SearchBar'
+import { TrendingAssets } from '@/components/library/TrendingAssets'
 import { RequestButton } from '@/components/ui/RequestButton'
 
 export default function Home() {
@@ -8,6 +11,9 @@ export default function Home() {
       <h1 className="text-4xl font-bold">Library</h1>
       <p className="mt-4 text-lg">Browse tor assets needed to report and present analysis.</p>
       <SearchBar />
+      <FilterBar />
+      <FeaturedAssets />
+      <TrendingAssets />
     </div>
   )
 }
