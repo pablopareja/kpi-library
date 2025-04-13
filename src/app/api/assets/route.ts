@@ -13,7 +13,7 @@ export const GET = async (request: Request) => {
   const type = searchParams.get('type')
 
   // Simulate network latency to make Suspense/loading states visible
-  await delay(1000)
+  await delay(3000)
 
   let filtered = []
 

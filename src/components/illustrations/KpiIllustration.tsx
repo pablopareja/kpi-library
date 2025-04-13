@@ -1,4 +1,4 @@
-export function KpiIllustration(props: React.SVGProps<SVGSVGElement>) {
+export const KpiIllustration = (props: React.SVGProps<SVGSVGElement>) => {
   return (
     <svg
       {...props}

@@ -1,4 +1,4 @@
-export function LayoutIllustration(props: React.SVGProps<SVGSVGElement>) {
+export const LayoutIllustration = (props: React.SVGProps<SVGSVGElement>) => {
   return (
     <svg
       {...props}

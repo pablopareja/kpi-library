@@ -15,9 +15,9 @@ export const AssetList = async ({ type, highlightCards = false }: AssetListProps
   const assets = await fetchAssets(type)
 
   return (
-    <div className="grid grid-cols-3 gap-4">
+    <div className="flex flex-wrap gap-4">
       {assets.map((asset: AssetSummary) => (
-        <div key={`asset-${asset.id}`}>
+        <div key={`asset-${asset.id}`} className="flex-1">
           <AssetCard asset={asset} highlighted={highlightCards} />
         </div>
       ))}

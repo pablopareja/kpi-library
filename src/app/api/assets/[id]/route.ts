@@ -8,7 +8,7 @@ import { NextResponse } from 'next/server'
  * Full details from the asset are returned here
  */
 export async function GET(_: Request, { params }: { params: { id: string } }) {
-  await delay(1000) // I simulate a delay of 1 second for this API endpoint
+  await delay(2000) // I simulate a delay of 2 seconds for this API endpoint
 
   const asset = assets.find(a => a.id === params.id)
 

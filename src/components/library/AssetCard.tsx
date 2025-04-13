@@ -11,15 +11,22 @@ export const AssetCard = ({ asset, highlighted = false }: AssetCardProps) => {
   const Illustration = getAssetIllustration(asset.type)
   return (
     <div
-      className={clsx('flex items-center p-4 min-w-80', {
-        'bg-white border border-gray-200 rounded border-solid': highlighted,
-      })}
+      className={clsx(
+        'flex items-start p-4 min-w-80 h-36 gap-4 transition-transform duration-200 hover:scale-[1.02] cursor-pointer',
+        {
+          'bg-white border border-gray-200 rounded-xl border-solid': highlighted,
+        }
+      )}
     >
-      <Illustration className="rounded max-w-24" />
-      <div className="flex flex-col gap-2">
-        <span className="text-black">{asset.name}</span>
-        <span>{asset.description}</span>
-        <span className="text-gray-400">{asset.updatedAtDate}</span>
+      <div className="rounded-xl p-1 bg-gray-100">
+        <Illustration className="text-gray-500 w-24" />
+      </div>
+      <div className="flex flex-col gap-1">
+        <h4 className="text-black font-bold line-clamp-1" title={asset.name}>
+          {asset.name}
+        </h4>
+        <p className="line-clamp-2">{asset.description}</p>
+        <p className="text-gray-400 text-sm">{asset.updatedAtDate}</p>
       </div>
     </div>
   )

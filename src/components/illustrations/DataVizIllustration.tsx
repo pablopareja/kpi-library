@@ -1,4 +1,4 @@
-export function DataVizIllustration(props: React.SVGProps<SVGSVGElement>) {
+export const DataVizIllustration = (props: React.SVGProps<SVGSVGElement>) => {
   return (
     <svg
       {...props}
