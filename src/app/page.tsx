@@ -10,8 +10,8 @@ export default function Home() {
       <RequestButton className="absolute top-2 right-4" />
       <h1 className="text-4xl font-bold">Library</h1>
       <p className="mt-4 text-lg">Browse tor assets needed to report and present analysis.</p>
-      <SearchBar />
-      <FilterBar />
+      <SearchBar className="max-w-3xl" />
+      <FilterBar className="max-w-3xl" />
       <FeaturedAssets />
       <TrendingAssets />
     </div>

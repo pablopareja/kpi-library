@@ -17,7 +17,7 @@ export const AssetList = async ({ type, highlightCards = false }: AssetListProps
   return (
     <div className="flex flex-wrap gap-4">
       {assets.map((asset: AssetSummary) => (
-        <div key={`asset-${asset.id}`} className="flex-1">
+        <div key={`asset-${asset.id}`} className="flex-1 basis-[calc(33.333%-1rem)]">
           <AssetCard asset={asset} highlighted={highlightCards} />
         </div>
       ))}

@@ -10,15 +10,21 @@ interface ButtonBarProps {
 export const ButtonBar = ({ options, value, onChange, className = '' }: ButtonBarProps) => {
   return (
     <div
-      className={clsx('flex items-center justify-between gap-2 p-1 bg-gray-200 rounded', className)}
+      className={clsx(
+        'flex flex-wrap items-center justify-between gap-2 p-1 bg-gray-200 rounded',
+        className
+      )}
     >
       {options.map(option => (
         <div
           key={`option-${option.value}`}
-          className={clsx('flex items-center justify-center px-8 py-2 rounded cursor-pointer', {
-            'bg-white text-black': option.value === value,
-            'text-gray-500 hover:text-gray-400': option.value !== value,
-          })}
+          className={clsx(
+            'flex flex-1 items-center justify-center px-8 py-2 rounded cursor-pointer transition-colors',
+            {
+              'bg-white text-black': option.value === value,
+              'text-gray-500 hover:text-gray-400': option.value !== value,
+            }
+          )}
           onClick={() => onChange(option.value)}
         >
           {option.label}

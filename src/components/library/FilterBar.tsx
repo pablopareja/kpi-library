@@ -2,6 +2,7 @@
 
 import { FilterOption, useFilterStore } from '@/stores/useFilterStore'
 import { AssetType } from '@/types'
+import clsx from 'clsx'
 import { ButtonBar } from '../ui/ButtonBar'
 
 const filterOptions: { value: FilterOption; label: string }[] = [
@@ -29,7 +30,11 @@ const filterOptions: { value: FilterOption; label: string }[] = [
   },
 ]
 
-export const FilterBar = () => {
+interface FilterBarProps {
+  className?: string
+}
+
+export const FilterBar = ({ className = '' }: FilterBarProps) => {
   const filter = useFilterStore(state => state.filter)
   const setFilter = useFilterStore(state => state.setFilter)
 
@@ -39,7 +44,7 @@ export const FilterBar = () => {
 
   return (
     <ButtonBar
-      className="w-full mt-8"
+      className={clsx('w-full mt-8', className)}
       options={filterOptions}
       value={filter}
       onChange={handleChange}

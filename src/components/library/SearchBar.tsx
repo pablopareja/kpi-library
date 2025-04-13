@@ -5,12 +5,17 @@ import { useEffect, useState } from 'react'
 import { useDebouncedCallback } from '@/hooks/useDebouncedCallback'
 
 import { useSearchStore } from '@/stores/useSearchStore'
+import clsx from 'clsx'
 import { SearchInput } from '../ui/SearchInput'
 
 // Default time used for debouncing the search call in milliseconds
 const DEFAULT_DEBOUNCE_TIMEOUT = 300
 
-export const SearchBar = () => {
+interface SearchBarProps {
+  className?: string
+}
+
+export const SearchBar = ({ className = '' }: SearchBarProps) => {
   const [searchText, setSearchText] = useState<string>('')
   const setSearchQuery = useSearchStore(state => state.setSearchText)
 
@@ -28,7 +33,7 @@ export const SearchBar = () => {
   }
   return (
     <SearchInput
-      className="w-full mt-8"
+      className={clsx('w-full mt-8', className)}
       onChange={handleSearch}
       onClear={handleClear}
       value={searchText}
