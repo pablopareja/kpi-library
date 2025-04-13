@@ -1,6 +1,5 @@
 import { assets } from '@/data/assets'
 import { delay } from '@/lib/utils'
-import { AssetType } from '@/types'
 import { NextResponse } from 'next/server'
 
 /**
@@ -10,32 +9,31 @@ import { NextResponse } from 'next/server'
  */
 export const GET = async (request: Request) => {
   const { searchParams } = new URL(request.url)
-  const type = searchParams.get('type')
+  const type = searchParams.get('type') // type parameter
+  const search = searchParams.get('search')?.toLowerCase() // search parameter
 
   // Simulate network latency to make Suspense/loading states visible
   await delay(3000)
 
-  let filtered = []
+  let filtered = assets
 
-  switch (type) {
-    case 'Featured':
-      // Return only assets where `featured` is true
-      filtered = assets.filter(asset => asset.featured)
-      break
-    case 'Trending':
-      // Return only assets where `trending` is true
-      filtered = assets.filter(asset => asset.trending)
-      break
-    case AssetType.Kpi:
-    case AssetType.Layout:
-    case AssetType.DataViz:
-    case AssetType.Storyboard:
-      // Match specific asset types
-      filtered = assets.filter(asset => asset.type === type)
-      break
-    default:
-      // No filtering – return all assets
-      filtered = assets
+  // I filter by type first
+  if (type === 'Featured') {
+    filtered = filtered.filter(asset => asset.featured)
+  } else if (type === 'Trending') {
+    filtered = filtered.filter(asset => asset.trending)
+  } else if (['Kpi', 'Layout', 'DataViz', 'Storyboard'].includes(type ?? '')) {
+    filtered = filtered.filter(asset => asset.type === type)
+  }
+
+  // Then I apply text search if present
+  // NOTE: this is a simplistic search approach that should be improved in real scenarios
+  if (search) {
+    filtered = filtered.filter(
+      asset =>
+        asset.name.toLowerCase().includes(search) ||
+        asset.description.toLowerCase().includes(search)
+    )
   }
 
   // Return only summary fields used in cards (not full asset details).

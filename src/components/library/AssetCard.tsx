@@ -1,6 +1,9 @@
+'use client'
+
 import { getAssetIllustration } from '@/lib/getAssetIllustration'
 import { AssetSummary } from '@/types'
 import clsx from 'clsx'
+import Link from 'next/link'
 
 interface AssetCardProps {
   asset: AssetSummary
@@ -9,8 +12,10 @@ interface AssetCardProps {
 
 export const AssetCard = ({ asset, highlighted = false }: AssetCardProps) => {
   const Illustration = getAssetIllustration(asset.type)
+
   return (
-    <div
+    <Link
+      href={`?id=${asset.id}`}
       className={clsx(
         'flex items-start p-4 min-w-80 h-34 gap-4 transition-transform duration-200 hover:scale-[1.02] cursor-pointer',
         {
@@ -30,6 +35,6 @@ export const AssetCard = ({ asset, highlighted = false }: AssetCardProps) => {
         </div>
         <p className="text-gray-400 text-sm">{asset.updatedAtDate}</p>
       </div>
-    </div>
+    </Link>
   )
 }

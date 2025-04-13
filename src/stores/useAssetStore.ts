@@ -8,7 +8,7 @@ type AssetStore = {
   selectedAsset: AssetWithType | null // Details of a selected asset
   loading: boolean // Loading state of the API calls
   error: string | null // Error message if any
-  fetchAssets: (filter?: AssetTypeOptions) => Promise<void> // List API call (GET /api/assets)
+  fetchAssets: (filter: { type?: AssetTypeOptions; search?: string }) => Promise<void> // List API call (GET /api/assets)
   fetchAssetById: (id: string) => Promise<void> // Detail API call (GET /api/assets/:id)
 }
 
@@ -19,7 +19,7 @@ export const useAssetStore = create<AssetStore>(set => ({
   error: null,
 
   // Fetch summary list of assets (optionally filtered by type)
-  fetchAssets: async (filter?: AssetTypeOptions) => {
+  fetchAssets: async (filter: { type?: AssetTypeOptions; search?: string } = {}) => {
     set({ loading: true, error: null })
     try {
       const data = await fetchAssets(filter)

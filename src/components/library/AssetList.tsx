@@ -7,12 +7,13 @@ import { AssetSummary } from '@/types'
 import { AssetCard } from './AssetCard'
 
 interface AssetListProps {
-  type: FilterOption | 'Trending'
+  type?: FilterOption | 'Trending'
+  search?: string
   highlightCards?: boolean
 }
 
-export const AssetList = async ({ type, highlightCards = false }: AssetListProps) => {
-  const assets = await fetchAssets(type)
+export const AssetList = async ({ type, search, highlightCards = false }: AssetListProps) => {
+  const assets = await fetchAssets({ type, search })
 
   return (
     <div className="flex flex-wrap gap-4">

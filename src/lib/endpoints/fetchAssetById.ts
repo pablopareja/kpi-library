@@ -1,4 +1,5 @@
 import { AssetWithType } from '@/types'
+import { getBaseUrl } from '../getBaseUrl'
 
 /**
  * Fetches full asset details by ID from the API.
@@ -7,7 +8,10 @@ import { AssetWithType } from '@/types'
  * @throws If the asset is not found or the API call fails
  */
 export const fetchAssetById = async (id: string): Promise<AssetWithType> => {
-  const res = await fetch(`/api/assets/${id}`, {
+  // We need this when the method is called from Server Components, since there relative URLs can't be resolved automatically
+  const baseUrl = getBaseUrl()
+
+  const res = await fetch(`${baseUrl}/api/assets/${id}`, {
     next: { revalidate: 0 }, // This is disabling static caching so that data is freshed fresh on every request
     // It could not make sense depending on the frequency with which assets are created/updated
   })

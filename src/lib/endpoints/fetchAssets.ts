@@ -6,18 +6,33 @@ export type AssetTypeOptions = FilterOption | 'Trending'
 
 /**
  * Fetches assets from the API.
- * Results retrieved can be filterd by type
- * @param type Asset type to be used for filtering (including special options like 'Featured' and 'Trending')
- * @returns An array of filtered assets -or all of them if no filter is provided
- * @throws If there's an error when failing the assets
+ * Results retrieved can be filtered by type &/or searched by a query string.
+ *
+ * @param filter - An object containing optional filtering parameters:
+ *  - `type` (optional): The type of assets to filter by. Can be a `FilterOption` or `'Trending'`.
+ *  - `search` (optional): A search query string to filter assets by name or other criteria.
+ *
+ * @returns An array of filtered assets, or all assets if no filter is provided.
+ *
+ * @throws If there's an error when fetching the assets, such as a network issue or server error.
  */
-export const fetchAssets = async (type?: AssetTypeOptions): Promise<AssetSummary[]> => {
+export const fetchAssets = async ({
+  type,
+  search,
+}: {
+  type?: AssetTypeOptions
+  search?: string
+}): Promise<AssetSummary[]> => {
+  const query = new URLSearchParams()
+
+  if (type) query.append('type', type)
+  if (search) query.append('search', search)
+
   // We need this when the method is called from Server Components, since there relative URLs can't be resolved automatically
   const baseUrl = getBaseUrl()
-  // Build the URL conditionally
-  const url = type
-    ? `${baseUrl}/api/assets?type=${encodeURIComponent(type)}` // encoded in case type contains spaces or slashes in the future
-    : `${baseUrl}/api/assets`
+  const url = `${baseUrl}/api/assets?${query.toString()}`
+
+  console.log('url', url)
 
   const res = await fetch(url, {
     next: { revalidate: 0 }, // This is disabling static caching so that data is freshed fresh on every request
