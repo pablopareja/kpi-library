@@ -48,3 +48,8 @@ export interface Affiliate {
 }
 
 export type MetricId = string
+
+export type AssetSummary = Pick<
+  AssetWithType,
+  'id' | 'name' | 'description' | 'type' | 'updatedAtDate'
+>

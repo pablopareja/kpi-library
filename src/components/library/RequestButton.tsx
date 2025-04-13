@@ -1,7 +1,7 @@
 'use client'
 
 import { RequestIcon } from '@/components/icons/RequestIcon'
-import { Button } from './Button'
+import { Button } from '../ui/Button'
 
 interface RequestButtonProps {
   onClick?: () => void

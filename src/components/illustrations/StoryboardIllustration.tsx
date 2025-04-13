@@ -1,4 +1,4 @@
-export function StoryboardIllustration(props: React.SVGProps<SVGSVGElement>) {
+export const StoryboardIllustration = (props: React.SVGProps<SVGSVGElement>) => {
   return (
     <svg
       {...props}

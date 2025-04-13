@@ -1,8 +1,8 @@
 import { FeaturedAssets } from '@/components/library/FeaturedAssets'
 import { FilterBar } from '@/components/library/FilterBar'
+import { RequestButton } from '@/components/library/RequestButton'
 import { SearchBar } from '@/components/library/SearchBar'
 import { TrendingAssets } from '@/components/library/TrendingAssets'
-import { RequestButton } from '@/components/ui/RequestButton'
 
 export default function Home() {
   return (
