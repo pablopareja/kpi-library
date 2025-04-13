@@ -5,8 +5,9 @@ export interface Asset {
   favorite: boolean
   featured: boolean
   trending: boolean
-  createdDate: string
-  updatedDate: string
+  createdAtDate: string
+  updatedAtDate: string
+  tags: string[]
 }
 
 export enum AssetType {

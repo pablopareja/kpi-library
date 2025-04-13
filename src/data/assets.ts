@@ -7,5 +7,9 @@ export const assets: AssetWithType[] = [
     description: 'Description of the KPI asset',
     type: AssetType.Kpi,
     favorite: true,
+    trending: false,
+    featured: true,
+    createdAtDate: '06/27/2024',
+    updatedAtDate: '13/04/2025',
   },
 ]
