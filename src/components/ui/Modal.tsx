@@ -50,7 +50,7 @@ export const Dialog = ({ open, onClose, children, showCopyLinkButton = false }: 
             <ClearIcon className="w-6 h-6 cursor-pointer" />
           </button>
         </div>
-        <div className="p-6">{children}</div>
+        <div className="p-6 mt-6">{children}</div>
       </div>
     </div>
   )
