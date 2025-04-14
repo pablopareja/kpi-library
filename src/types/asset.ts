@@ -23,6 +23,9 @@ export type AssetWithType = Asset & { type: AssetType }
 export type Kpi = Asset & {
   businessQuestions: BusinessQuestion[]
   metricIds: MetricId[]
+  visualsAvailable: number
+  affiliateApplicability: number
+  calculation: string
 }
 
 export type DataViz = Asset & {
@@ -31,10 +34,12 @@ export type DataViz = Asset & {
 
 export type Layout = Asset & {
   amountOfPages: number
+  kpisUsed: number
 }
 
 export type Storyboard = Asset & {
-  applicableAffiliates: Affiliate[]
+  applicableAffiliates: number
+  coupledKpisOrFilters: number
 }
 
 export interface BusinessQuestion {

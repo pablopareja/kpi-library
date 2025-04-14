@@ -1,16 +1,16 @@
-import { AssetType, AssetWithType } from '@/types'
+import { AssetType, DataViz, Kpi, Layout, Storyboard } from '@/types'
 
 /**
  * This is a simulation of the data that could comprise the asset library.
  * It includes 12 mock assets of various types, each with tags and separate short/long descriptions.
  */
-export const assets: AssetWithType[] = [
+export const assets: ((DataViz | Kpi | Layout | Storyboard) & { type: AssetType })[] = [
   {
     id: 'k1',
     name: 'Revenue Growth KPI',
     shortDescription: 'Tracks YoY revenue changes',
     description:
-      'This KPI measures year-over-year revenue performance, helping analysts understand trends, seasonal fluctuations, and the impact of strategic initiatives across quarters.',
+      'Measures the year-over-year increase or decrease in revenue to assess the financial health and market expansion of the business.',
     type: AssetType.Kpi,
     favorite: true,
     trending: false,
@@ -18,6 +18,28 @@ export const assets: AssetWithType[] = [
     createdAtDate: '2024-06-27',
     updatedAtDate: '2025-04-13',
     tags: ['finance', 'growth', 'quarterly'],
+    businessQuestions: [
+      {
+        title: 'How is revenue evolving year-over-year?',
+        description: 'Tracks annual revenue trends to evaluate financial growth.',
+      },
+      {
+        title: 'Are specific regions driving or hindering revenue growth?',
+        description: 'Helps identify regional performance differences in revenue generation.',
+      },
+      {
+        title: 'What products contribute most to revenue changes?',
+        description: 'Analyzes revenue by product line to reveal high-performing areas.',
+      },
+      {
+        title: 'How does our growth compare to industry benchmarks?',
+        description: 'Assesses whether revenue growth aligns with market expectations.',
+      },
+    ],
+    metricIds: ['m1', 'm2'],
+    visualsAvailable: 5,
+    calculation: '-',
+    affiliateApplicability: 23,
   },
   {
     id: 'd1',
@@ -32,6 +54,7 @@ export const assets: AssetWithType[] = [
     createdAtDate: '2023-12-01',
     updatedAtDate: '2025-01-10',
     tags: ['sales', 'regions', 'bar chart'],
+    infoContext: 'This is the asset info context',
   },
   {
     id: 'l1',
@@ -46,6 +69,8 @@ export const assets: AssetWithType[] = [
     createdAtDate: '2024-01-15',
     updatedAtDate: '2024-05-20',
     tags: ['reports', 'finance', 'quarterly'],
+    amountOfPages: 6,
+    kpisUsed: 2398,
   },
   {
     id: 's1',
@@ -60,13 +85,15 @@ export const assets: AssetWithType[] = [
     createdAtDate: '2023-11-05',
     updatedAtDate: '2025-03-01',
     tags: ['marketing', 'campaign', 'visuals'],
+    applicableAffiliates: 6,
+    coupledKpisOrFilters: 34,
   },
   {
     id: 'k2',
     name: 'Customer Churn Rate',
     shortDescription: 'KPI for tracking customer loss month over month',
     description:
-      'Tracks customer attrition over time to help identify retention risks, recurring drop-off trends, and opportunities for improving long-term customer loyalty.',
+      'Indicates the percentage of customers lost during a given period and is used to understand customer retention and satisfaction.',
     type: AssetType.Kpi,
     favorite: false,
     trending: false,
@@ -74,6 +101,28 @@ export const assets: AssetWithType[] = [
     createdAtDate: '2024-03-10',
     updatedAtDate: '2025-02-14',
     tags: ['retention', 'customers', 'performance'],
+    businessQuestions: [
+      {
+        title: 'What is our current monthly churn rate?',
+        description: 'Provides visibility into how many customers we are losing each month.',
+      },
+      {
+        title: 'What are the main drivers of churn?',
+        description: 'Identifies reasons why customers are leaving the service or product.',
+      },
+      {
+        title: 'Which customer segments have the highest churn?',
+        description: 'Analyzes churn by demographic, region, or product usage.',
+      },
+      {
+        title: 'Is our churn improving after retention efforts?',
+        description: 'Measures churn trends over time in response to retention strategies.',
+      },
+    ],
+    metricIds: ['m3', 'm4'],
+    visualsAvailable: 67,
+    affiliateApplicability: 98,
+    calculation: '-',
   },
   {
     id: 'd2',
@@ -88,6 +137,7 @@ export const assets: AssetWithType[] = [
     createdAtDate: '2024-08-02',
     updatedAtDate: '2025-01-30',
     tags: ['conversion', 'ux', 'funnel'],
+    infoContext: 'This is the asset info context',
   },
   {
     id: 'l2',
@@ -102,6 +152,8 @@ export const assets: AssetWithType[] = [
     createdAtDate: '2024-02-22',
     updatedAtDate: '2025-04-01',
     tags: ['dashboard', 'summary', 'exec'],
+    amountOfPages: 3,
+    kpisUsed: 378,
   },
   {
     id: 's2',
@@ -116,13 +168,15 @@ export const assets: AssetWithType[] = [
     createdAtDate: '2023-09-14',
     updatedAtDate: '2024-12-05',
     tags: ['affiliate', 'comparison', 'metrics'],
+    applicableAffiliates: 9,
+    coupledKpisOrFilters: 23,
   },
   {
     id: 'k3',
     name: 'Net Promoter Score',
     shortDescription: 'Tracks NPS changes over time',
     description:
-      'Evaluates customer loyalty through Net Promoter Score changes across months, helping organizations monitor satisfaction trends and feedback loops.',
+      'NPS measures customer loyalty by tracking how likely customers are to recommend your company to others.',
     type: AssetType.Kpi,
     favorite: false,
     trending: false,
@@ -130,6 +184,28 @@ export const assets: AssetWithType[] = [
     createdAtDate: '2024-04-18',
     updatedAtDate: '2025-03-21',
     tags: ['nps', 'customer', 'feedback'],
+    businessQuestions: [
+      {
+        title: 'How likely are customers to recommend our company?',
+        description: 'Assesses customer sentiment and loyalty through NPS.',
+      },
+      {
+        title: 'Is our NPS trending up or down?',
+        description: 'Tracks whether customer satisfaction is improving over time.',
+      },
+      {
+        title: 'What feedback are detractors providing?',
+        description: 'Captures insights from dissatisfied customers to drive improvements.',
+      },
+      {
+        title: 'How does NPS vary across channels or regions?',
+        description: 'Examines how customer experiences differ by contact point or geography.',
+      },
+    ],
+    metricIds: ['m5', 'm6'],
+    visualsAvailable: 38,
+    affiliateApplicability: 123,
+    calculation: '-',
   },
   {
     id: 'd3',
@@ -144,6 +220,7 @@ export const assets: AssetWithType[] = [
     createdAtDate: '2023-06-10',
     updatedAtDate: '2025-02-08',
     tags: ['traffic', 'line chart', 'analytics'],
+    infoContext: 'This is the info context for the asset',
   },
   {
     id: 'l3',
@@ -158,6 +235,8 @@ export const assets: AssetWithType[] = [
     createdAtDate: '2024-07-01',
     updatedAtDate: '2025-01-17',
     tags: ['investor', 'presentation', 'financial'],
+    amountOfPages: 46,
+    kpisUsed: 367,
   },
   {
     id: 's3',
@@ -172,5 +251,7 @@ export const assets: AssetWithType[] = [
     createdAtDate: '2024-12-31',
     updatedAtDate: '2025-04-10',
     tags: ['yearly', 'overview', 'summary'],
+    applicableAffiliates: 24,
+    coupledKpisOrFilters: 123,
   },
 ]
