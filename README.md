@@ -80,3 +80,7 @@ The project includes four simulated API endpoints under the `/api` route to emul
 Each endpoint includes an artificial delay to simulate network latency and ensure proper loading feedback through skeletons and suspense fallbacks.
 
 > **Note:** These endpoints do not implement any authentication or session management. In a real production scenario, secure user authentication and proper access control mechanisms should be enforced across all API routes and application pages. Middleware or server logic would be required to validate session tokens and user permissions accordingly.
+
+## 📱 Responsive Design
+
+The application is responsive and adapts to different screen sizes. While not built with a mobile-first approach, layouts adjust gracefully and remain usable on smaller viewports. No specific optimizations have been made for mobile or custom breakpoints.
