@@ -18,7 +18,7 @@ export const RequestButton = ({ onClick, className = '' }: RequestButtonProps) =
       className={className}
       variant="secondary"
       label="Request"
-      icon={<RequestIcon className={'w-8 h-8'} />}
+      icon={<RequestIcon className={'w-6 h-6'} />}
       onClick={handleClick}
     />
   )
