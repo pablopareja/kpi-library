@@ -63,4 +63,20 @@ The presence of the `id` query parameter (e.g., `?id=k1`) is used to control the
 
 This routing strategy allows asset details to be accessed and shared directly via URL without requiring navigation to a separate page.
 
+## 🛰️ API Simulation
 
+The project includes four simulated API endpoints under the `/api` route to emulate data retrieval and interaction patterns in a real-world application. Artificial delays and loading skeletons have been implemented to simulate asynchronous behavior and enhance the realism of loading states during development.
+
+### 📦 Asset Endpoints
+
+1. **`GET /api/assets`** – Fetches a filtered list of assets based on `type` and/or `search` query parameters. The response includes summary data optimized for card display.
+2. **`GET /api/assets/:id`** – Retrieves full details for a specific asset by `id`. This is used for the asset detail modal dialog.
+
+### 🛂 Access Request Endpoints
+
+1. **`POST /api/access`** – Allows the user to request access to the full asset library.
+2. **`POST /api/access/:id`** – Allows the user to request access to a specific asset.
+
+Each endpoint includes an artificial delay to simulate network latency and ensure proper loading feedback through skeletons and suspense fallbacks.
+
+> **Note:** These endpoints do not implement any authentication or session management. In a real production scenario, secure user authentication and proper access control mechanisms should be enforced across all API routes and application pages. Middleware or server logic would be required to validate session tokens and user permissions accordingly.
