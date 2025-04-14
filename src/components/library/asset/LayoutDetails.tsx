@@ -27,9 +27,7 @@ export const LayoutDetails = ({ layout }: LayoutDetailsProps) => (
           value: layout.updatedAtDate,
         },
       ].map(item => (
-        <div key={`item-${item.label}`}>
-          <ItemData item={item} />
-        </div>
+        <ItemData key={`item-${item.label}`} item={item} />
       ))}
     </div>
     <VisualizationPlaceholder />

@@ -32,9 +32,7 @@ export const KpiDetails = ({ kpi }: KpiDetailsProps) => (
           value: kpi.updatedAtDate,
         },
       ].map(item => (
-        <div key={`item-${item.label}`}>
-          <ItemData item={item} />
-        </div>
+        <ItemData key={`item-${item.label}`} item={item} />
       ))}
     </div>
     <VisualizationPlaceholder />
