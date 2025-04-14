@@ -1,3 +1,5 @@
+import { ItemData } from '@/components/ui/ItemData'
+import { VisualizationPlaceholder } from '@/components/ui/VisualizationPlaceholder'
 import { Kpi } from '@/types'
 import { BusinessQuestions } from '../BusinessQuestions'
 
@@ -11,15 +13,15 @@ export const KpiDetails = ({ kpi }: KpiDetailsProps) => (
       {[
         {
           label: 'Visuals Available ⓘ',
-          value: kpi.visualsAvailable,
+          value: `${kpi.visualsAvailable}`,
         },
         {
           label: 'Metrics No. ⓘ',
-          value: kpi.metricIds.length,
+          value: `${kpi.metricIds.length}`,
         },
         {
           label: 'Aff. Applicability ⓘ',
-          value: kpi.affiliateApplicability,
+          value: `${kpi.affiliateApplicability}`,
         },
         {
           label: 'Calculation ⓘ',
@@ -29,18 +31,13 @@ export const KpiDetails = ({ kpi }: KpiDetailsProps) => (
           label: 'Last Updated',
           value: kpi.updatedAtDate,
         },
-      ].map((item, index) => (
-        <div
-          key={item.label}
-          className="flex flex-1 flex-col gap-2 items-center justify-start px-4 py-4 min-w-[140px] h-22"
-        >
-          <span className="font-bold text-black text-base">{item.value}</span>
-          <span className="text-gray-500 text-xs text-center">{item.label}</span>
+      ].map(item => (
+        <div key={`item-${item.label}`}>
+          <ItemData item={item} />
         </div>
       ))}
     </div>
-    {/* visual placeholder */}
-    <div className="bg-gray-100 rounded h-[200px] w-full" />
+    <VisualizationPlaceholder />
     <BusinessQuestions questions={kpi.businessQuestions} />
   </div>
 )

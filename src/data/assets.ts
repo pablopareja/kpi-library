@@ -9,7 +9,8 @@ export const assets: ((DataViz | Kpi | Layout | Storyboard) & { type: AssetType 
     id: 'k1',
     name: 'Revenue Growth KPI',
     shortDescription: 'Tracks YoY revenue changes',
-    description: 'Measures the year-over-year increase or decrease in revenue...',
+    description:
+      'Measures the year-over-year increase or decrease in revenue to help evaluate a company’s financial health, identify growth trends, and guide strategic decisions for long-term planning and expansion.',
     type: AssetType.Kpi,
     favorite: true,
     trending: false,
@@ -44,7 +45,8 @@ export const assets: ((DataViz | Kpi | Layout | Storyboard) & { type: AssetType 
     id: 'd1',
     name: 'Sales by Region',
     shortDescription: 'Bar chart showing sales by geographical area',
-    description: 'This bar chart visualizes sales performance segmented by geographic regions...',
+    description:
+      'This bar chart visualizes sales performance across different regions, enabling teams to pinpoint top-performing areas, uncover underperforming markets, and better allocate resources and sales strategies accordingly.',
     type: AssetType.DataViz,
     favorite: false,
     trending: true,
@@ -58,7 +60,8 @@ export const assets: ((DataViz | Kpi | Layout | Storyboard) & { type: AssetType 
     id: 'l1',
     name: 'Quarterly Layout',
     shortDescription: 'Predefined layout for quarterly reports',
-    description: 'A ready-to-use layout optimized for quarterly reporting...',
+    description:
+      'A ready-to-use layout designed to streamline quarterly reporting with placeholders for KPIs, visuals, summaries, and conclusions, ensuring consistent structure and a professional presentation for stakeholders.',
     type: AssetType.Layout,
     favorite: true,
     trending: true,
@@ -68,12 +71,14 @@ export const assets: ((DataViz | Kpi | Layout | Storyboard) & { type: AssetType 
     tags: ['reports', 'finance', 'quarterly'],
     amountOfPages: 6,
     kpisUsed: 2398,
+    layoutType: 'Universal',
   },
   {
     id: 's1',
     name: 'Marketing Storyboard',
     shortDescription: 'Storyboard for marketing campaign performance',
-    description: 'Visual storyboard tailored for showcasing marketing campaign performance...',
+    description:
+      'Visual storyboard designed to showcase the performance of marketing campaigns, including metrics such as reach, engagement, and conversion, helping teams tell compelling data stories to stakeholders and executives.',
     type: AssetType.Storyboard,
     favorite: false,
     trending: false,
@@ -88,7 +93,8 @@ export const assets: ((DataViz | Kpi | Layout | Storyboard) & { type: AssetType 
     id: 'k2',
     name: 'Customer Churn Rate',
     shortDescription: 'KPI for tracking customer loss month over month',
-    description: 'Indicates the percentage of customers lost during a given period...',
+    description:
+      'This KPI measures the percentage of customers lost during a defined period, providing insight into retention issues and helping teams identify patterns or causes that may require strategic changes or interventions.',
     type: AssetType.Kpi,
     favorite: false,
     trending: false,
@@ -123,7 +129,8 @@ export const assets: ((DataViz | Kpi | Layout | Storyboard) & { type: AssetType 
     id: 'd2',
     name: 'Conversion Funnel',
     shortDescription: 'Funnel showing user drop-off across signup steps',
-    description: 'Displays a step-by-step view of the user journey through signup...',
+    description:
+      'Displays the user journey from initial visit to conversion, highlighting where users exit the funnel, so teams can identify friction points and optimize each step for higher conversion rates and improved user experience.',
     type: AssetType.DataViz,
     favorite: true,
     trending: false,
@@ -137,7 +144,8 @@ export const assets: ((DataViz | Kpi | Layout | Storyboard) & { type: AssetType 
     id: 'l2',
     name: 'Executive Summary Layout',
     shortDescription: 'Compact layout for executive dashboards',
-    description: 'A condensed layout for executive-level reporting...',
+    description:
+      'A clean and condensed layout optimized for executive-level dashboards, allowing quick access to key figures, summaries, and decisions without overwhelming detail, promoting rapid insight at a glance.',
     type: AssetType.Layout,
     favorite: false,
     trending: false,
@@ -147,12 +155,14 @@ export const assets: ((DataViz | Kpi | Layout | Storyboard) & { type: AssetType 
     tags: ['dashboard', 'summary', 'exec'],
     amountOfPages: 3,
     kpisUsed: 378,
+    layoutType: 'Universal',
   },
   {
     id: 's2',
     name: 'Affiliate Performance Storyboard',
     shortDescription: 'Storyboard comparing affiliate metrics',
-    description: 'Illustrates affiliate performance across various metrics...',
+    description:
+      'This storyboard highlights the performance of affiliate partners using visual elements, making it easier to compare their effectiveness and contribution to conversions, traffic, or sales performance across time.',
     type: AssetType.Storyboard,
     favorite: true,
     trending: true,
@@ -167,7 +177,8 @@ export const assets: ((DataViz | Kpi | Layout | Storyboard) & { type: AssetType 
     id: 'k3',
     name: 'Net Promoter Score',
     shortDescription: 'Tracks NPS changes over time',
-    description: 'NPS measures customer loyalty by tracking how likely customers are...',
+    description:
+      'NPS evaluates customer loyalty by measuring how likely customers are to recommend a business. It’s a strong indicator of satisfaction and can guide customer service and product improvement strategies.',
     type: AssetType.Kpi,
     favorite: false,
     trending: false,
@@ -202,7 +213,8 @@ export const assets: ((DataViz | Kpi | Layout | Storyboard) & { type: AssetType 
     id: 'd3',
     name: 'Website Traffic Over Time',
     shortDescription: 'Line chart showing daily visitors',
-    description: 'A line chart showing daily web traffic, ideal for identifying spikes...',
+    description:
+      'This line chart provides a day-by-day view of website traffic, making it simple to detect anomalies, track campaign impact, monitor engagement trends, and understand when and why traffic fluctuates.',
     type: AssetType.DataViz,
     favorite: true,
     trending: false,
@@ -216,7 +228,8 @@ export const assets: ((DataViz | Kpi | Layout | Storyboard) & { type: AssetType 
     id: 'l3',
     name: 'Investor Report Layout',
     shortDescription: 'Structured layout for investor-facing decks',
-    description: 'A formal layout template crafted for investor updates...',
+    description:
+      'A polished layout structure intended for investor presentations, offering areas to present KPIs, performance trends, and projections in a way that maintains clarity and builds investor trust.',
     type: AssetType.Layout,
     favorite: true,
     trending: false,
@@ -226,12 +239,14 @@ export const assets: ((DataViz | Kpi | Layout | Storyboard) & { type: AssetType 
     tags: ['investor', 'presentation', 'financial'],
     amountOfPages: 46,
     kpisUsed: 367,
+    layoutType: 'Universal',
   },
   {
     id: 's3',
     name: 'Yearly Review Storyboard',
     shortDescription: 'Storyboard summarizing annual business performance',
-    description: 'A comprehensive storyboard designed to summarize the key highlights...',
+    description:
+      'A comprehensive visual summary of the company’s yearly performance across multiple departments and initiatives, ideal for year-end reporting, presentations, and retrospective strategy discussions.',
     type: AssetType.Storyboard,
     favorite: false,
     trending: true,

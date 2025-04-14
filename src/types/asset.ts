@@ -36,6 +36,7 @@ export type DataViz = Asset & {
 export type Layout = Asset & {
   amountOfPages: number
   kpisUsed: number
+  layoutType: string
 }
 
 export type Storyboard = Asset & {
