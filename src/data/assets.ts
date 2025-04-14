@@ -64,7 +64,7 @@ export const assets: ((DataViz | Kpi | Layout | Storyboard) & { type: AssetType 
       'A ready-to-use layout designed to streamline quarterly reporting with placeholders for KPIs, visuals, summaries, and conclusions, ensuring consistent structure and a professional presentation for stakeholders.',
     type: AssetType.Layout,
     favorite: true,
-    trending: true,
+    trending: false,
     featured: true,
     createdAtDate: '01/15/2024',
     updatedAtDate: '05/20/2024',
@@ -218,7 +218,7 @@ export const assets: ((DataViz | Kpi | Layout | Storyboard) & { type: AssetType 
     type: AssetType.DataViz,
     favorite: true,
     trending: false,
-    featured: true,
+    featured: false,
     createdAtDate: '06/10/2023',
     updatedAtDate: '02/08/2025',
     tags: ['traffic', 'line chart', 'analytics'],
@@ -256,5 +256,95 @@ export const assets: ((DataViz | Kpi | Layout | Storyboard) & { type: AssetType 
     tags: ['yearly', 'overview', 'summary'],
     applicableAffiliates: 24,
     coupledKpisOrFilters: 123,
+  },
+  {
+    id: 'k4',
+    name: 'Operating Margin KPI',
+    shortDescription: 'Monitors company profitability ratio',
+    description:
+      'Tracks operating margin to evaluate the percentage of revenue remaining after deducting operating expenses, helping assess the efficiency and profitability of core business activities.',
+    type: AssetType.Kpi,
+    favorite: false,
+    trending: true,
+    featured: false,
+    createdAtDate: '07/10/2024',
+    updatedAtDate: '03/01/2025',
+    tags: ['finance', 'profitability', 'efficiency'],
+    businessQuestions: [
+      {
+        title: 'How has our operating margin evolved over time?',
+        description: 'Analyzes trends in operating profitability over quarters or years.',
+      },
+      {
+        title: 'Are we managing operating costs efficiently?',
+        description: 'Evaluates if operational expenditures are being controlled effectively.',
+      },
+      {
+        title: 'Which business units contribute most to margin improvements?',
+        description: 'Breaks down operating margin by unit or product line.',
+      },
+      {
+        title: 'How does our margin compare to industry peers?',
+        description: 'Benchmarks performance against competitors.',
+      },
+    ],
+    metricIds: ['m7', 'm8'],
+    visualsAvailable: 12,
+    calculation: '-',
+    affiliateApplicability: 17,
+  },
+
+  // New DataViz
+  {
+    id: 'd4',
+    name: 'Engagement by Channel',
+    shortDescription: 'Chart comparing user engagement by platform',
+    description:
+      'This stacked column chart shows user engagement across various digital channels including mobile, desktop, and email. It allows teams to understand channel performance and inform marketing strategies.',
+    type: AssetType.DataViz,
+    favorite: true,
+    trending: false,
+    featured: false,
+    createdAtDate: '10/01/2023',
+    updatedAtDate: '03/15/2025',
+    tags: ['engagement', 'channel', 'comparison'],
+    infoContext: 'Breakdown of user interaction by source over time',
+  },
+
+  // New Layout
+  {
+    id: 'l4',
+    name: 'Performance Snapshot Layout',
+    shortDescription: 'Single-page layout for quick performance review',
+    description:
+      'A snapshot layout that provides a compact overview of key performance indicators and business health on a single page. Ideal for executive updates or internal dashboards.',
+    type: AssetType.Layout,
+    favorite: false,
+    trending: false,
+    featured: false,
+    createdAtDate: '05/05/2024',
+    updatedAtDate: '06/01/2025',
+    tags: ['summary', 'snapshot', 'executive'],
+    amountOfPages: 1,
+    kpisUsed: 154,
+    layoutType: 'Universal',
+  },
+
+  // New Storyboard
+  {
+    id: 's4',
+    name: 'Launch Campaign Overview',
+    shortDescription: 'Storyboard for new product launch campaign',
+    description:
+      'A storyboard that walks through campaign setup, early results, and regional comparisons for a new product launch. Helps teams align on goals, success metrics, and future campaign optimization.',
+    type: AssetType.Storyboard,
+    favorite: false,
+    trending: false,
+    featured: true,
+    createdAtDate: '10/12/2023',
+    updatedAtDate: '04/05/2025',
+    tags: ['launch', 'campaign', 'overview'],
+    applicableAffiliates: 5,
+    coupledKpisOrFilters: 18,
   },
 ]
