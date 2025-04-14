@@ -1,19 +1,31 @@
-import { Suspense } from 'react'
+import { AssetSummary } from '@/types'
 import { AssetList } from './AssetList'
-import { AssetListSkeleton } from './AssetListSkeleton'
 
 interface FeaturedAssetsProps {
-  search?: string
+  assets: AssetSummary[]
+  loading?: boolean
 }
 
-export const FeaturedAssets = ({ search = '' }: FeaturedAssetsProps) => {
+export const FeaturedAssets = ({ assets, loading }: FeaturedAssetsProps) => {
+  const featuredAssets = assets.filter(asset => asset.featured)
+  const trendingAssets = assets.filter(asset => asset.trending)
+
   return (
-    <div className="w-full mt-12">
-      <h2 className="text-2xl font-bold">Featured</h2>
-      <p className="text-sm text-gray-400">Curated top picks from this week</p>
-      <Suspense fallback={<AssetListSkeleton />}>
-        <AssetList search={search} type="Featured" highlightCards={true} />
-      </Suspense>
+    <div className="flex flex-col gap-4 w-full">
+      <div className="flex flex-col gap-8 mt-8">
+        <div>
+          <h2 className="text-2xl font-bold">Featured</h2>
+          <p className="text-sm text-gray-400">Curated top picks from this week</p>
+        </div>
+        <AssetList assets={featuredAssets} highlightCards={true} loading={loading} />
+      </div>
+      <div className="flex flex-col gap-8 mt-8">
+        <div>
+          <h2 className="text-2xl font-bold">Trending</h2>
+          <p className="text-sm text-gray-400">Most popular by community</p>
+        </div>
+        <AssetList assets={trendingAssets} highlightCards={true} loading={loading} />
+      </div>
     </div>
   )
 }

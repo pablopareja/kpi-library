@@ -18,10 +18,9 @@ export const GET = async (request: Request) => {
   let filtered = assets
 
   // I filter by type first
+  // The 'Featured' type is a special case since we're also returning Trending assets in this case
   if (type === 'Featured') {
-    filtered = filtered.filter(asset => asset.featured)
-  } else if (type === 'Trending') {
-    filtered = filtered.filter(asset => asset.trending)
+    filtered = filtered.filter(asset => asset.featured || asset.trending)
   } else if (['Kpi', 'Layout', 'DataViz', 'Storyboard'].includes(type ?? '')) {
     filtered = filtered.filter(asset => asset.type === type)
   }
@@ -39,13 +38,17 @@ export const GET = async (request: Request) => {
   // Return only summary fields used in cards (not full asset details).
   // I'm doing this to simulate the fact that in a real-world scenario, assets could include properties or details
   // that are not necessary to be returned here and could make the request to take more time unnecessarily
-  const summarized = filtered.map(({ id, name, description, type, updatedAtDate }) => ({
-    id,
-    name,
-    description,
-    type,
-    updatedAtDate,
-  }))
+  const summarized = filtered.map(
+    ({ id, name, description, type, updatedAtDate, trending, featured }) => ({
+      id,
+      name,
+      description,
+      type,
+      updatedAtDate,
+      trending,
+      featured,
+    })
+  )
 
   return NextResponse.json(summarized)
 }

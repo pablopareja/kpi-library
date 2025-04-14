@@ -13,7 +13,6 @@ export const SearchResults = () => {
       fetchAssets({ search: searchText })
     }
   }, [searchText])
-  console.log('assets', assets)
 
   return (
     <div className="flex flex-col gap-8 mt-16 w-full">

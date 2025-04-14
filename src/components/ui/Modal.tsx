@@ -18,7 +18,7 @@ export const Dialog = ({ open, onClose, children }: DialogProps) => {
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-gray-400 px-4 py-8"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 px-4 py-8"
       onClick={onClose} // I close the modal when clicking outside the modal (it works well thanks to stopping the propagation below)
     >
       <div

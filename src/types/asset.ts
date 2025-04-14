@@ -51,5 +51,5 @@ export type MetricId = string
 
 export type AssetSummary = Pick<
   AssetWithType,
-  'id' | 'name' | 'description' | 'type' | 'updatedAtDate'
+  'id' | 'name' | 'description' | 'type' | 'updatedAtDate' | 'featured' | 'trending'
 >
