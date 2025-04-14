@@ -1,6 +1,6 @@
 /**
  * I'm gonna use this method to simulate the time API calls might take (and thus allowing
- * Suspense fallbacks to be temporarily visible)
+ * Suspense fallbacks or Loading skeletons to be temporarily visible)
  * @param ms
  * @returns
  */
