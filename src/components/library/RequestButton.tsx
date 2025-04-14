@@ -14,12 +14,14 @@ export const RequestButton = ({ onClick, className = '' }: RequestButtonProps) =
   }
 
   return (
-    <Button
-      className={className}
-      variant="secondary"
-      label="Request"
-      icon={<RequestIcon className={'w-6 h-6'} />}
-      onClick={handleClick}
-    />
+    <div>
+      <Button
+        className={className}
+        variant="secondary"
+        label="Request"
+        icon={<RequestIcon className={'w-6 h-6'} />}
+        onClick={handleClick}
+      />
+    </div>
   )
 }
