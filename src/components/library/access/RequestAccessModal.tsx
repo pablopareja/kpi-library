@@ -29,7 +29,6 @@ export const RequestAccessModal = ({ onClose, asset }: RequestAccessModal) => {
 
   const handleSubmit = () => {
     setLoading(true)
-    console.log('assset', asset)
     sendAccessRequest({ description: message, ...(asset && { assetId: asset.id }) }).then(
       (response: AccessRequest) => {
         setLoading(false)
@@ -49,7 +48,7 @@ export const RequestAccessModal = ({ onClose, asset }: RequestAccessModal) => {
       <div className="flex flex-col gap-8">
         <h2 className="flex justify-center w-full text-3xl font-bold">Request Access</h2>
         {!confirmationReceived && (
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col items-start gap-2">
             <h5 className="font-bold text-l">Message</h5>
             <textarea
               className="w-full h-[200px] p-2 border border-solid border-gray-300 rounded focus:outline-none focus:border-gray-500"
@@ -60,13 +59,18 @@ export const RequestAccessModal = ({ onClose, asset }: RequestAccessModal) => {
         )}
         {loading && <LoadingText className="w-full" />}
         {confirmationReceived && (
-          <div className="flex ">
-            Your request has been sent. We'll send you an email as soon as it gets approved.
+          <div className="flex flex-col px-34">
+            <p>Your request has been sent.</p>
+            <p> We'll send you an email as soon as it gets approved.</p>
           </div>
         )}
       </div>
       <div className="flex justify-end gap-2 mt-4">
-        <Button variant="secondary" label="Cancel" onClick={handleClose} />
+        <Button
+          variant="secondary"
+          label={confirmationReceived ? 'Close' : 'Cancel'}
+          onClick={handleClose}
+        />
         {!confirmationReceived && !loading && (
           <Button variant="primary" label="Submit" onClick={handleSubmit} />
         )}

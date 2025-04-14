@@ -32,8 +32,6 @@ export const fetchAssets = async ({
   const baseUrl = getBaseUrl()
   const url = `${baseUrl}/api/assets?${query.toString()}`
 
-  console.log('url', url)
-
   const res = await fetch(url, {
     next: { revalidate: 0 }, // This is disabling static caching so that data is freshed fresh on every request
     // It could not make sense depending on the frequency with which assets are created/updated

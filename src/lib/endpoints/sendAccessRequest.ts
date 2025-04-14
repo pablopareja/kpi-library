@@ -6,10 +6,17 @@ import { getBaseUrl } from '../getBaseUrl'
  *  either the whole library or a specific asset
  */
 export const sendAccessRequest = async (accessRequest: AccessRequest): Promise<AccessRequest> => {
+  const query = new URLSearchParams()
+  query.append('description', accessRequest.description)
+  if (accessRequest.assetId) {
+    query.append('assetId', accessRequest.assetId)
+  }
+
   // We need this when the method is called from Server Components, since there relative URLs can't be resolved automatically
   const baseUrl = getBaseUrl()
-  const url = `${baseUrl}/api/access${accessRequest.assetId ? `/${accessRequest.assetId}` : ''}`
-  console.log('url', url)
+  const url = `${baseUrl}/api/access/${
+    accessRequest.assetId ? `${accessRequest.assetId}` : ''
+  }?${query.toString()}`
 
   const res = await fetch(url)
 

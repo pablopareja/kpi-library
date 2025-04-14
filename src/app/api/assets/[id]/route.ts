@@ -7,7 +7,8 @@ import { NextRequest, NextResponse } from 'next/server'
  * Here I simulate the request that would be used to get the data for a specific asset.
  * Full details from the asset are returned here
  */
-export async function GET(request: NextRequest, { params }: { params: { id: string } }) {
+export async function GET(_: NextRequest, context: { params: { id: string } }) {
+  const params = await context.params
   const id = params.id
 
   await delay(2000) // I simulate a delay of 2 seconds for this API endpoint

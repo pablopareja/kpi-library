@@ -9,6 +9,7 @@ import { FavoriteIcon } from '../../icons/FavoriteIcon'
 import { Button } from '../../ui/Button'
 import { Dialog } from '../../ui/Modal'
 import { TagPill } from '../../ui/TagPill'
+import { RequestAccessButton } from '../access/RequestAccessButton'
 import { AssetModalContentSkeleton } from './AssetModalContentSkeleton'
 import { DataVizDetails } from './DataVizDetails'
 import { KpiDetails } from './KpiDetails'
@@ -83,6 +84,8 @@ export const AssetDialog = () => {
           )}
 
           {getDetailsComponent(asset)}
+
+          {asset.type === AssetType.Storyboard && <RequestAccessButton asset={asset} />}
 
           <Button
             className="w-full"
