@@ -4,6 +4,7 @@ import { getAssetIllustration } from '@/lib/getAssetIllustration'
 import { AssetSummary } from '@/types'
 import clsx from 'clsx'
 import Link from 'next/link'
+import { useSearchParams } from 'next/navigation'
 
 interface AssetCardProps {
   asset: AssetSummary
@@ -12,10 +13,17 @@ interface AssetCardProps {
 
 export const AssetCard = ({ asset, highlighted = false }: AssetCardProps) => {
   const Illustration = getAssetIllustration(asset.type)
+  const searchParams = useSearchParams()
+
+  // Clone existing params and add/update the `id`
+  // Otherwise I would be overwriting the URL state when opening the detail modal
+  // and thus losing the previous filtering state when closing it
+  const params = new URLSearchParams(searchParams.toString())
+  params.set('id', asset.id)
 
   return (
     <Link
-      href={`?id=${asset.id}`}
+      href={`?${params.toString()}`}
       className={clsx(
         'flex items-start p-4 min-w-80 h-34 gap-4 transition-transform duration-200 hover:scale-[1.02] cursor-pointer',
         {
