@@ -5,7 +5,7 @@ import { KpiIllustration } from '@/components/illustrations/KpiIllustration'
 import { LayoutIllustration } from '@/components/illustrations/LayoutIllustration'
 import { StoryboardIllustration } from '@/components/illustrations/StoryboardIllustration'
 
-export const getAssetIllustration = (type: AssetType) => {
+export const getAssetIllustration = (type: AssetType | undefined) => {
   switch (type) {
     case AssetType.Kpi:
       return KpiIllustration
@@ -15,5 +15,7 @@ export const getAssetIllustration = (type: AssetType) => {
       return LayoutIllustration
     case AssetType.Storyboard:
       return StoryboardIllustration
+    default:
+      return LayoutIllustration
   }
 }

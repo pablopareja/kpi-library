@@ -13,7 +13,7 @@ export async function GET(_: Request, { params }: { params: { id: string } }) {
   const asset = assets.find(a => a.id === params.id)
 
   if (!asset) {
-    return NextResponse.json({ error: `Asset not found for id: ${id}` }, { status: 404 })
+    return NextResponse.json({ error: `Asset not found for id: ${params.id}` }, { status: 404 })
   }
 
   return NextResponse.json(asset)

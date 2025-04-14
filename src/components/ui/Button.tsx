@@ -1,10 +1,7 @@
 import clsx from 'clsx'
 import React from 'react'
 
-export enum ButtonVariant {
-  Primary = 'primary',
-  Secondary = 'secondary',
-}
+type ButtonVariant = 'primary' | 'secondary'
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   label: string
@@ -18,16 +15,16 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 
 // base styles for the button
 const baseStyles =
-  'flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 active:scale-[0.98] shadow-sm cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary'
+  'flex justify-center items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 active:scale-[0.98] shadow-sm cursor-pointer'
 
 const variants: Record<ButtonVariant, string> = {
-  primary: 'bg-primary text-white hover:bg-slate-900 active:bg-slate-950',
-  secondary: 'bg-accent text-white hover:bg-slate-500 active:bg-slate-600',
+  primary: 'bg-black text-white hover:bg-gray-700 active:bg-gray-800',
+  secondary: 'bg-gray-600 text-white hover:bg-gray-400 active:bg-gray-500',
 }
 
 export const Button = ({
   label,
-  variant = ButtonVariant.Primary,
+  variant = 'primary',
   icon,
   onClick,
   type = 'button',

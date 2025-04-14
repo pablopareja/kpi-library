@@ -2,13 +2,15 @@ import { AssetType, AssetWithType } from '@/types'
 
 /**
  * This is a simulation of the data that could comprise the asset library.
- * It include 12 mock assets of various types including tags.
+ * It includes 12 mock assets of various types, each with tags and separate short/long descriptions.
  */
 export const assets: AssetWithType[] = [
   {
     id: 'k1',
     name: 'Revenue Growth KPI',
-    description: 'Tracks YoY revenue changes',
+    shortDescription: 'Tracks YoY revenue changes',
+    description:
+      'This KPI measures year-over-year revenue performance, helping analysts understand trends, seasonal fluctuations, and the impact of strategic initiatives across quarters.',
     type: AssetType.Kpi,
     favorite: true,
     trending: false,
@@ -20,7 +22,9 @@ export const assets: AssetWithType[] = [
   {
     id: 'd1',
     name: 'Sales by Region',
-    description: 'Bar chart showing sales by geographical area',
+    shortDescription: 'Bar chart showing sales by geographical area',
+    description:
+      'This bar chart visualizes sales performance segmented by geographic regions, enabling insights into regional demand and identifying underperforming or high-growth areas.',
     type: AssetType.DataViz,
     favorite: false,
     trending: true,
@@ -32,7 +36,9 @@ export const assets: AssetWithType[] = [
   {
     id: 'l1',
     name: 'Quarterly Layout',
-    description: 'Predefined layout for quarterly reports',
+    shortDescription: 'Predefined layout for quarterly reports',
+    description:
+      'A ready-to-use layout optimized for quarterly reporting, aligning with stakeholder expectations and including sectioning for KPIs, visuals, and strategic insights.',
     type: AssetType.Layout,
     favorite: true,
     trending: true,
@@ -44,7 +50,9 @@ export const assets: AssetWithType[] = [
   {
     id: 's1',
     name: 'Marketing Storyboard',
-    description: 'Storyboard for marketing campaign performance',
+    shortDescription: 'Storyboard for marketing campaign performance',
+    description:
+      'Visual storyboard tailored for showcasing marketing campaign performance, ideal for storytelling across marketing funnels, engagement metrics, and conversion snapshots.',
     type: AssetType.Storyboard,
     favorite: false,
     trending: false,
@@ -56,7 +64,9 @@ export const assets: AssetWithType[] = [
   {
     id: 'k2',
     name: 'Customer Churn Rate',
-    description: 'KPI for tracking customer loss month over month',
+    shortDescription: 'KPI for tracking customer loss month over month',
+    description:
+      'Tracks customer attrition over time to help identify retention risks, recurring drop-off trends, and opportunities for improving long-term customer loyalty.',
     type: AssetType.Kpi,
     favorite: false,
     trending: false,
@@ -68,7 +78,9 @@ export const assets: AssetWithType[] = [
   {
     id: 'd2',
     name: 'Conversion Funnel',
-    description: 'Funnel showing user drop-off across signup steps',
+    shortDescription: 'Funnel showing user drop-off across signup steps',
+    description:
+      'Displays a step-by-step view of the user journey through signup or conversion processes, making it easy to detect and optimize for high drop-off points.',
     type: AssetType.DataViz,
     favorite: true,
     trending: false,
@@ -80,7 +92,9 @@ export const assets: AssetWithType[] = [
   {
     id: 'l2',
     name: 'Executive Summary Layout',
-    description: 'Compact layout for executive dashboards',
+    shortDescription: 'Compact layout for executive dashboards',
+    description:
+      'A condensed layout for executive-level reporting, balancing visual appeal with clarity and optimized for highlighting key metrics and summaries at a glance.',
     type: AssetType.Layout,
     favorite: false,
     trending: false,
@@ -92,7 +106,9 @@ export const assets: AssetWithType[] = [
   {
     id: 's2',
     name: 'Affiliate Performance Storyboard',
-    description: 'Storyboard comparing affiliate metrics',
+    shortDescription: 'Storyboard comparing affiliate metrics',
+    description:
+      'Illustrates affiliate performance across various metrics, enabling comparison of partner impact, conversion contribution, and regional distribution.',
     type: AssetType.Storyboard,
     favorite: true,
     trending: true,
@@ -104,7 +120,9 @@ export const assets: AssetWithType[] = [
   {
     id: 'k3',
     name: 'Net Promoter Score',
-    description: 'Tracks NPS changes over time',
+    shortDescription: 'Tracks NPS changes over time',
+    description:
+      'Evaluates customer loyalty through Net Promoter Score changes across months, helping organizations monitor satisfaction trends and feedback loops.',
     type: AssetType.Kpi,
     favorite: false,
     trending: false,
@@ -116,7 +134,9 @@ export const assets: AssetWithType[] = [
   {
     id: 'd3',
     name: 'Website Traffic Over Time',
-    description: 'Line chart showing daily visitors',
+    shortDescription: 'Line chart showing daily visitors',
+    description:
+      'A line chart showing daily web traffic, ideal for identifying spikes, trends, and anomalies in site engagement over specific time periods.',
     type: AssetType.DataViz,
     favorite: true,
     trending: false,
@@ -128,7 +148,9 @@ export const assets: AssetWithType[] = [
   {
     id: 'l3',
     name: 'Investor Report Layout',
-    description: 'Structured layout for investor-facing decks',
+    shortDescription: 'Structured layout for investor-facing decks',
+    description:
+      'A formal layout template crafted for investor updates and financial presentations, with focus areas for KPIs, financial performance, and market outlook.',
     type: AssetType.Layout,
     favorite: true,
     trending: false,
@@ -140,7 +162,9 @@ export const assets: AssetWithType[] = [
   {
     id: 's3',
     name: 'Yearly Review Storyboard',
-    description: 'Storyboard summarizing annual business performance',
+    shortDescription: 'Storyboard summarizing annual business performance',
+    description:
+      'A comprehensive storyboard designed to summarize the key highlights and performance indicators of the business across the entire year.',
     type: AssetType.Storyboard,
     favorite: false,
     trending: true,

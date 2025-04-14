@@ -39,7 +39,7 @@ export const AssetCard = ({ asset, highlighted = false }: AssetCardProps) => {
           <h4 className="text-black font-bold line-clamp-1" title={asset.name}>
             {asset.name}
           </h4>
-          <p className="line-clamp-2">{asset.description}</p>
+          <p className="line-clamp-2">{asset.shortDescription}</p>
         </div>
         <p className="text-gray-400 text-sm">{asset.updatedAtDate}</p>
       </div>

@@ -28,10 +28,10 @@ export const Dialog = ({ open, onClose, children, showCopyLinkButton = false }: 
       onClick={onClose} // I close the modal when clicking outside the modal (it works well thanks to stopping the propagation below)
     >
       <div
-        className="relative bg-white rounded-xl w-full max-w-2xl max-h-[90vh] overflow-y-auto shadow-xl transition-all duration-300"
+        className="relative bg-white rounded-xl w-full max-w-3xl max-h-[90vh] overflow-y-auto shadow-xl transition-all duration-300"
         onClick={e => e.stopPropagation()} // I need to prevent inner clicks from closing the modal here
       >
-        <div className="absolute top-4 right-4">
+        <div className="flex items-center gap-1 absolute top-4 right-4">
           {showCopyLinkButton && (
             <button
               onClick={handleCopyLink}
@@ -47,7 +47,7 @@ export const Dialog = ({ open, onClose, children, showCopyLinkButton = false }: 
             className="text-gray-400 hover:text-gray-600 text-xl"
             aria-label="Close"
           >
-            <ClearIcon className="w-5 h-5 cursor-pointer" />
+            <ClearIcon className="w-6 h-6 cursor-pointer" />
           </button>
         </div>
         <div className="p-6">{children}</div>

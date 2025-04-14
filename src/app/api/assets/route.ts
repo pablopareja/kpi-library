@@ -31,6 +31,7 @@ export const GET = async (request: Request) => {
     filtered = filtered.filter(
       asset =>
         asset.name.toLowerCase().includes(search) ||
+        asset.shortDescription.toLowerCase().includes(search) ||
         asset.description.toLowerCase().includes(search)
     )
   }
@@ -39,10 +40,10 @@ export const GET = async (request: Request) => {
   // I'm doing this to simulate the fact that in a real-world scenario, assets could include properties or details
   // that are not necessary to be returned here and could make the request to take more time unnecessarily
   const summarized = filtered.map(
-    ({ id, name, description, type, updatedAtDate, trending, featured }) => ({
+    ({ id, name, shortDescription, type, updatedAtDate, trending, featured }) => ({
       id,
       name,
-      description,
+      shortDescription,
       type,
       updatedAtDate,
       trending,

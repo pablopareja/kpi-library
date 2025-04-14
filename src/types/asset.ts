@@ -1,6 +1,7 @@
 export interface Asset {
   id: string
   name: string
+  shortDescription: string
   description: string
   favorite: boolean
   featured: boolean
@@ -51,5 +52,5 @@ export type MetricId = string
 
 export type AssetSummary = Pick<
   AssetWithType,
-  'id' | 'name' | 'description' | 'type' | 'updatedAtDate' | 'featured' | 'trending'
+  'id' | 'name' | 'shortDescription' | 'type' | 'updatedAtDate' | 'featured' | 'trending'
 >

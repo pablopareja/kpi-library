@@ -16,6 +16,7 @@ export const RequestButton = ({ onClick, className = '' }: RequestButtonProps) =
   return (
     <Button
       className={className}
+      variant="secondary"
       label="Request"
       icon={<RequestIcon className={'w-8 h-8'} />}
       onClick={handleClick}

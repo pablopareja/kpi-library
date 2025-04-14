@@ -12,13 +12,6 @@ module.exports = {
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
       },
-      colors: {
-        primary: '#1e293b', // slate-800
-        accent: '#64748b', // slate-400
-        background: '#f9fafb', // gray-50
-        card: '#ffffff', // for cards
-        muted: '#e2e8f0', // gray-200 borders
-      },
       borderRadius: {
         lg: '1rem',
         xl: '1.5rem',
