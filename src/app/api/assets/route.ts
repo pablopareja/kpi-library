@@ -9,11 +9,10 @@ import { NextResponse } from 'next/server'
  */
 export const GET = async (request: Request) => {
   const { searchParams } = new URL(request.url)
-  const type = searchParams.get('type') // type parameter
-  const search = searchParams.get('search')?.toLowerCase() // search parameter
+  const type = searchParams.get('type')
+  const search = searchParams.get('search')?.toLowerCase()
 
-  // Simulate network latency to make Suspense/loading states visible
-  await delay(3000)
+  await delay(2000) // I simulate a delay of 1.5 seconds for this API endpoint
 
   let filtered = assets
 

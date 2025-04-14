@@ -60,10 +60,16 @@ export const AssetDialog = () => {
   return (
     <Dialog open={!!id} onClose={handleClose} showCopyLinkButton={true}>
       {asset && (
-        <div className="flex flex-col items-center gap-4 text-center">
-          <div className="rounded-xl p-1 bg-gray-100">
-            <Illustration className="w-10 h-10" />
+        <div className="flex flex-col items-center gap-4 text-center mt-4">
+          <div className="relative flex justify-center items-center w-full">
+            <div className="rounded-xl p-1 bg-gray-100">
+              <Illustration className="w-10 h-10" />
+            </div>
+            {asset.type === AssetType.Storyboard && (
+              <RequestAccessButton className="absolute top-0 right-0" asset={asset} />
+            )}
           </div>
+
           <div className="flex flex-col items-center">
             <div className="flex items-center gap-3">
               <div className="text-3xl font-bold">{asset.name}</div>
@@ -84,8 +90,6 @@ export const AssetDialog = () => {
           )}
 
           {getDetailsComponent(asset)}
-
-          {asset.type === AssetType.Storyboard && <RequestAccessButton asset={asset} />}
 
           <Button
             className="w-full"

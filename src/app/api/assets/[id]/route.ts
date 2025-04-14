@@ -11,7 +11,7 @@ export async function GET(_: NextRequest, context: { params: { id: string } }) {
   const params = await context.params
   const id = params.id
 
-  await delay(2000) // I simulate a delay of 2 seconds for this API endpoint
+  await delay(1500) // I simulate a delay of 1.5 seconds for this API endpoint
 
   const asset = assets.find(a => a.id === id)
 
