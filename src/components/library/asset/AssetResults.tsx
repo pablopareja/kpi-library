@@ -1,8 +1,8 @@
 'use client'
 
 import { useSearchStore } from '@/stores/useSearchStore'
-import { FilterResults } from './FilterResults'
-import { SearchResults } from './SearchResults'
+import { FilterResults } from '../FilterResults'
+import { SearchResults } from '../SearchResults'
 
 export const AssetResults = () => {
   const search = useSearchStore(state => state.searchText)

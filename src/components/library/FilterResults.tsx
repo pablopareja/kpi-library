@@ -2,7 +2,7 @@ import { useAssetStore } from '@/stores/useAssetStore'
 import { useFilterStore } from '@/stores/useFilterStore'
 import { useEffect } from 'react'
 import { LoadingText } from '../ui/Loading'
-import { AssetList } from './AssetList'
+import { AssetList } from './asset/AssetList'
 import { FeaturedAssets } from './FeaturedAssets'
 import { FilterBar } from './FilterBar'
 

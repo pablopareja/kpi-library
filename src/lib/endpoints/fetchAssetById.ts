@@ -1,4 +1,4 @@
-import { AssetWithType } from '@/types'
+import { AssetType, DataViz, Kpi, Layout, Storyboard } from '@/types'
 import { getBaseUrl } from '../getBaseUrl'
 
 /**
@@ -7,7 +7,9 @@ import { getBaseUrl } from '../getBaseUrl'
  * @returns The full asset object
  * @throws If the asset is not found or the API call fails
  */
-export const fetchAssetById = async (id: string): Promise<AssetWithType> => {
+export const fetchAssetById = async (
+  id: string
+): Promise<(DataViz | Kpi | Layout | Storyboard) & { type: AssetType }> => {
   // We need this when the method is called from Server Components, since there relative URLs can't be resolved automatically
   const baseUrl = getBaseUrl()
 

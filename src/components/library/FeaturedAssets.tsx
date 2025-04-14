@@ -1,5 +1,5 @@
 import { AssetSummary } from '@/types'
-import { AssetList } from './AssetList'
+import { AssetList } from './asset/AssetList'
 
 interface FeaturedAssetsProps {
   assets: AssetSummary[]

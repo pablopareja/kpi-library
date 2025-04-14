@@ -2,17 +2,37 @@
 
 import { fetchAssetById } from '@/lib/endpoints/fetchAssetById'
 import { getAssetIllustration } from '@/lib/getAssetIllustration'
-import { AssetWithType } from '@/types'
+import { AllAssetsWithType, AssetType, DataViz, Kpi, Layout, Storyboard } from '@/types'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { useEffect, useState } from 'react'
-import { FavoriteIcon } from '../icons/FavoriteIcon'
-import { Button } from '../ui/Button'
-import { Dialog } from '../ui/Modal'
-import { TagPill } from '../ui/TagPill'
+import { FavoriteIcon } from '../../icons/FavoriteIcon'
+import { Button } from '../../ui/Button'
+import { Dialog } from '../../ui/Modal'
+import { TagPill } from '../../ui/TagPill'
 import { AssetModalContentSkeleton } from './AssetModalContentSkeleton'
+import { DataVizDetails } from './DataVizDetails'
+import { KpiDetails } from './KpiDetails'
+import { LayoutDetails } from './LayoutDetails'
+import { StoryboardDetails } from './StoryboardDetails'
+
+const getDetailsComponent = (asset: AllAssetsWithType) => {
+  switch (asset.type) {
+    case AssetType.Kpi:
+      return <KpiDetails kpi={asset as Kpi} />
+    case AssetType.DataViz:
+      return <DataVizDetails dataViz={asset as DataViz} />
+    case AssetType.Layout:
+      return <LayoutDetails layout={asset as Layout} />
+    case AssetType.Storyboard:
+      return <StoryboardDetails storyboard={asset as Storyboard} />
+
+    default:
+      return null
+  }
+}
 
 export const AssetDialog = () => {
-  const [asset, setAsset] = useState<AssetWithType | null>(null)
+  const [asset, setAsset] = useState<AllAssetsWithType | null>(null)
   const router = useRouter()
   const searchParams = useSearchParams()
   const id = searchParams.get('id')
@@ -61,6 +81,9 @@ export const AssetDialog = () => {
               ))}
             </div>
           )}
+
+          {getDetailsComponent(asset)}
+
           <Button
             className="w-full"
             variant="primary"

@@ -1,5 +1,5 @@
-import { AssetDialog } from '@/components/library/AssetModal'
-import { AssetResults } from '@/components/library/AssetResults'
+import { AssetDialog } from '@/components/library/asset/AssetModal'
+import { AssetResults } from '@/components/library/asset/AssetResults'
 import { RequestButton } from '@/components/library/RequestButton'
 import { SearchBar } from '@/components/library/SearchBar'
 import { FilterSync } from '@/components/utils/FilterSync'

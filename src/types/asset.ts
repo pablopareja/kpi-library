@@ -19,6 +19,7 @@ export enum AssetType {
 }
 
 export type AssetWithType = Asset & { type: AssetType }
+export type AllAssetsWithType = (DataViz | Kpi | Layout | Storyboard) & { type: AssetType }
 
 export type Kpi = Asset & {
   businessQuestions: BusinessQuestion[]
