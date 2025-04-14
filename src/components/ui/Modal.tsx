@@ -30,7 +30,7 @@ export const Dialog = ({ open, onClose, children }: DialogProps) => {
           className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 text-xl"
           aria-label="Close"
         >
-          <ClearIcon className="w-5 h-5" />
+          <ClearIcon className="w-5 h-5 cursor-pointer" />
         </button>
 
         <div className="p-6">{children}</div>

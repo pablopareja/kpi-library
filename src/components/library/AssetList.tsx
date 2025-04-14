@@ -1,19 +1,18 @@
 // Server Component used inside <Suspense> to show asset cards
 // Loads data directly from mock API using fetch()
 
-import { fetchAssets } from '@/lib/endpoints/fetchAssets'
-import { FilterOption } from '@/stores/useFilterStore'
 import { AssetSummary } from '@/types'
 import { AssetCard } from './AssetCard'
+import { AssetListSkeleton } from './AssetListSkeleton'
 
 interface AssetListProps {
-  type?: FilterOption | 'Trending'
-  search?: string
+  assets: AssetSummary[]
+  loading?: boolean
   highlightCards?: boolean
 }
 
-export const AssetList = async ({ type, search, highlightCards = false }: AssetListProps) => {
-  const assets = await fetchAssets({ type, search })
+export const AssetList = ({ assets, highlightCards = false, loading = false }: AssetListProps) => {
+  if (loading) return <AssetListSkeleton />
 
   return (
     <div className="flex flex-wrap gap-4">
