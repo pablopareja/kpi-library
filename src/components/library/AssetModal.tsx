@@ -31,7 +31,7 @@ export const AssetDialog = () => {
   }
 
   return (
-    <Dialog open={!!id} onClose={handleClose}>
+    <Dialog open={!!id} onClose={handleClose} showCopyLinkButton={true}>
       {asset && (
         <div className="flex flex-col items-center gap-2 text-center">
           <div className="text-4xl font-bold">{asset.name}</div>

@@ -2,17 +2,23 @@
 
 import { ReactNode } from 'react'
 import ClearIcon from '../icons/ClearIcon'
+import { LinkIcon } from '../icons/LinkIcon'
 
 interface DialogProps {
   open: boolean
   onClose: () => void
   children: ReactNode
+  showCopyLinkButton?: boolean
 }
 
 /**
  * This generic dialog can be closed by both clicking in the cross icon and by clicking outside of the modal
  */
-export const Dialog = ({ open, onClose, children }: DialogProps) => {
+export const Dialog = ({ open, onClose, children, showCopyLinkButton = false }: DialogProps) => {
+  const handleCopyLink = () => {
+    navigator.clipboard.writeText(window.location.href)
+  }
+
   // Do not render if not open
   if (!open) return null
 
@@ -25,14 +31,25 @@ export const Dialog = ({ open, onClose, children }: DialogProps) => {
         className="relative bg-white rounded-xl w-full max-w-2xl max-h-[90vh] overflow-y-auto shadow-xl transition-all duration-300"
         onClick={e => e.stopPropagation()} // I need to prevent inner clicks from closing the modal here
       >
-        <button
-          onClick={onClose}
-          className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 text-xl"
-          aria-label="Close"
-        >
-          <ClearIcon className="w-5 h-5 cursor-pointer" />
-        </button>
-
+        <div className="absolute top-4 right-4">
+          {showCopyLinkButton && (
+            <button
+              onClick={handleCopyLink}
+              className="text-gray-400 hover:text-gray-600 text-xl"
+              aria-label="Copy link"
+              title="Copy link"
+            >
+              <LinkIcon className="w-5 h-5 cursor-pointer" />
+            </button>
+          )}
+          <button
+            onClick={onClose}
+            className="text-gray-400 hover:text-gray-600 text-xl"
+            aria-label="Close"
+          >
+            <ClearIcon className="w-5 h-5 cursor-pointer" />
+          </button>
+        </div>
         <div className="p-6">{children}</div>
       </div>
     </div>
